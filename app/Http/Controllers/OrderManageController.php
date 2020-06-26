@@ -5,31 +5,34 @@ namespace App\Http\Controllers;
 use App\Order;
 use Illuminate\Http\Request;
 
-class OrderManageController extends Controller {
-    
+class OrderManageController extends Controller
+{
+
     public function index()
     {
-        $orders = Order::orderBy('id' , 'DESC')->paginate(10);
+        $orders = Order::where('status', 1)->orderBy('id', 'DESC')->paginate(10);
 
-        return view('admin.order.index' , compact('orders'));
+        return view('admin.order.index', compact('orders'));
     }
-    public function view($id){
+
+    public function view($id)
+    {
         $order = Order::findOrFail($id);
 
-        return view('admin.order.view' , compact('order'));
+        return view('admin.order.view', compact('order'));
     }
 
     public function destroy($id)
     {
         $order = Order::findOrFail($id);
 
-        if($order->delete()) {
+        if ($order->delete()) {
             $notification = array(
                 'messege' => 'Order delete successfully',
                 'alert-type' => 'success',
             );
             return Redirect()->back()->with($notification);
-        }else{
+        } else {
             $notification = array(
                 'messege' => 'Failed to delte order',
                 'alert-type' => 'error',

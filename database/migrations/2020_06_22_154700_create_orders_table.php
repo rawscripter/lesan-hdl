@@ -21,8 +21,9 @@ class CreateOrdersTable extends Migration
             $table->string('city')->nullable();
             $table->string('zip')->nullable();
             $table->string('total')->nullable();
+            $table->string('status')->default(0);
             $table->string('paypal_tx_id')->nullable();
-            $table->string('paypal_data')->nullable();
+            $table->text('paypal_data')->nullable();
             $table->timestamps();
         });
     }

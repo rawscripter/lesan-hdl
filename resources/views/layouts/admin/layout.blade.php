@@ -24,7 +24,20 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/image-uploader.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Roboto', sans-serif;
 
+        }
+        body{
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+        div,h1,h2,h3,p,span,ul,li{
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
     <!-- endinject -->
     @yield('head')
 </head>
